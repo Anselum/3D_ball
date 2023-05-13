@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(135deg ,rgb(147, 241, 255),rgb(147, 85, 159));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.ball {
+  width:max(250px,40vh);
+  height: max(250px,40vh);
+  flex-shrink: 0;
+  background: radial-gradient(
+    farthest-corner at 340px 40px,
+    rgb(23, 234, 0) 5%,
+    rgb(4, 42, 0) 90%
+  );
+  border-radius: 50%;
+  position: relative;
+  animation: ballAnimation 10s infinite ease-in;
+  box-shadow: inset 5px 0px 30px rgb(9, 85, 0);
+}
+.ball::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 25%;
+  right: 20%;
+  background-color: rgba(255, 255, 255, 0.6);
+  filter: blur(15px);
+}
+
+@keyframes ballAnimation {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+}
